@@ -70,7 +70,7 @@ public class ReqresInTests {
     @Test
     @DisplayName("Успешная регистрация")
     @Tag("reqres_test")
-    void RegistrationIsSuccessfulWithLombok() {
+    void registrationIsSuccessfulWithLombok() {
 
         RegistrationBodyLombokModel body = new RegistrationBodyLombokModel();
         body.setEmail("eve.holt@reqres.in");
