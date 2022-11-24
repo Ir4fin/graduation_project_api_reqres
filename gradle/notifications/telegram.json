@@ -1,0 +1,17 @@
+{
+  "base": {
+    "project": "homework_11",
+    "environment": "main",
+    "comment": "some comment",
+    "reportLink": "",
+    "language": "en",
+    "messenger": "telegram",
+    "allureFolder": "build/reports/allure-report/allureReport",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "5628181541:AAHURMwD5LcW5_ewkn9isBwKk88f6_DFY44",
+    "chat": "302290044",
+    "replyTo": ""
+  }
+}
