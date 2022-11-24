@@ -15,7 +15,7 @@
 <img width="6%" title="GitHub" src="Images/GitHub.svg">
 <img width="6%" title="Jenkins" src="Images/Jenkins.svg">
 <img width="6%" title="Telegram" src="Images/Telegram.svg">
-<img width="6%" title="REST-Assured" src="Images/REST.png">
+<img width="6%" title="REST-Assured" src="Images/rest.png">
 </p>
 
 ## ▶️ Текущее тестовое покрытие
