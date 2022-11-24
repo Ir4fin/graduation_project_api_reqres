@@ -9,14 +9,15 @@
 ## ⚙️ Стек проекта
 
 <p align="center">
-<img width="6%" title="IntelliJ IDEA" src="Images/Intelij_IDEA.svg">
-<img width="6%" title="Java" src="Images/Java.svg">
-<img width="6%" title="Allure Report" src="Images/Allure_Report.svg">
-<img width="6%" title="Gradle" src="Images/Gradle.svg">
-<img width="6%" title="GitHub" src="Images/GitHub.svg">
-<img width="6%" title="Jenkins" src="Images/Jenkins.svg">
-<img width="6%" title="Telegram" src="Images/Telegram.svg">
-<img width="6%" title="REST-Assured" src="Images/rest.png">
+<img width="6%" title="IntelliJ IDEA" src="images/Intelij_IDEA.svg">
+<img width="6%" title="Java" src="images/Java.svg">
+<img width="6%" title="Allure Report" src="images/Allure_Report.svg">
+<img width="6%" title="Gradle" src="images/Gradle.svg">
+<img width="6%" title="GitHub" src="images/GitHub.svg">
+<img width="6%" title="Jenkins" src="images/Jenkins.svg">
+<img width="6%" title="Telegram" src="images/Telegram.svg">
+<img width="6%" title="REST-Assured" src="images/19369327.png">
+<img width="6%" title="Allure_TO" src="images/Allure_TO.svg">
 </p>
 
 ## ▶️ Текущее тестовое покрытие
