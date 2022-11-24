@@ -71,3 +71,9 @@ compileJava {
 compileTestJava {
     options.encoding = 'UTF-8'
 }
+
+task reqres_test(type: Test) {
+    useJUnitPlatform{
+        includeTags "reqres_test"
+    }
+}

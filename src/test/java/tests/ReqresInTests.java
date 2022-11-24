@@ -6,6 +6,7 @@ import models.RegistrationBodyPojoModel;
 import models.UpdateBodyLombokModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 
@@ -36,8 +37,10 @@ public class ReqresInTests {
     }
 
 
-    @DisplayName("Получение данных о существующем пользователе")
+
     @Test
+    @DisplayName("Получение данных о существующем пользователе")
+    @Tag("reqres_test")
     void getSingleUserPositive() {
         given()
                 .spec(userRequestSpec)
@@ -49,8 +52,10 @@ public class ReqresInTests {
     }
 
 
-    @DisplayName("Попытка получения данных о не существующем в БД пользователе ")
+
     @Test
+    @DisplayName("Попытка получения данных о не существующем в БД пользователе ")
+    @Tag("reqres_test")
     void getSingleUserNegative() {
         given()
                 .spec(userRequestSpec)
@@ -61,8 +66,10 @@ public class ReqresInTests {
                 .statusCode(404);
     }
 
-    @DisplayName("Успешная регистрация")
+
     @Test
+    @DisplayName("Успешная регистрация")
+    @Tag("reqres_test")
     void RegistrationIsSuccessfulWithLombok() {
 
         RegistrationBodyLombokModel body = new RegistrationBodyLombokModel();
@@ -81,8 +88,10 @@ public class ReqresInTests {
 
     }
 
-    @DisplayName("Попытка регистрации без пароля - проверка ошибки")
+
     @Test
+    @DisplayName("Попытка регистрации без пароля - проверка ошибки")
+    @Tag("reqres_test")
     void tryToRegistrationWithoutPasswordWithPojoModel() {
 
         RegistrationBodyPojoModel body = new RegistrationBodyPojoModel();
@@ -98,8 +107,10 @@ public class ReqresInTests {
                 .spec(badResponse);
     }
 
-    @DisplayName("Попытка регистрации без email - проверка ошибки")
+
     @Test
+    @DisplayName("Попытка регистрации без email - проверка ошибки")
+    @Tag("reqres_test")
     void tryToRegistrationWithoutEmailWithPojoModel() {
         RegistrationBodyPojoModel body = new RegistrationBodyPojoModel();
         body.setPassword(password);
@@ -114,8 +125,10 @@ public class ReqresInTests {
                 .spec(badResponse);
     }
 
-    @DisplayName("Удаление пользователя")
+
     @Test
+    @DisplayName("Удаление пользователя")
+    @Tag("reqres_test")
     void deleteSuccessful() {
         given()
                 .spec(userRequestSpec)
@@ -127,6 +140,8 @@ public class ReqresInTests {
     }
 
     @Test
+    @DisplayName("Обновление данных пользователя")
+    @Tag("reqres_test")
     void updateUserData() {
         UpdateBodyLombokModel body = new UpdateBodyLombokModel();
         body.setName(name);
