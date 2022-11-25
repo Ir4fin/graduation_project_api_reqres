@@ -1,6 +1,6 @@
 # Проект по автоматизации тестирования сайта reqres.in
 ## 📑Содержание
-- [Стек проекта](https://github.com/Ir4fin/graduation_project_api_reqres/edit/main/README.md#%EF%B8%8F-%D1%81%D1%82%D0%B5%D0%BA-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0)
+- [Стек проекта](https://github.com/Ir4fin/graduation_project_api_reqres#%EF%B8%8F-%D1%81%D1%82%D0%B5%D0%BA-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0)
 - [Текущее тестовое покрытие](https://github.com/Ir4fin/graduation_project_api_reqres/edit/main/README.md#%EF%B8%8F-%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B5%D0%B5-%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BF%D0%BE%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B5)
 - [Запуск тестов](https://github.com/Ir4fin/graduation_project_api_reqres/edit/main/README.md#-%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2)
 - [Проект в Allure TestOps](https://github.com/Ir4fin/graduation_project_api_reqres/edit/main/README.md#keyboard-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82-%D0%B2-allure-testops)
