@@ -1,7 +1,7 @@
 package tests;
 
 import com.github.javafaker.Faker;
-import models.RegistrationBodyLombokModel;
+import models.InputUserRegistrationDto;
 import models.RegistrationBodyPojoModel;
 import models.UpdateBodyLombokModel;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,21 +22,6 @@ public class ReqresInTests {
 
     Faker faker = new Faker(new Locale("en"));
 
-    String userEmail,
-            password,
-            name,
-            job;
-
-
-    @BeforeEach
-    void prepareTestData() {
-        userEmail = faker.internet().emailAddress();
-        password = faker.internet().password();
-        name = faker.name().firstName();
-        job = faker.job().position();
-    }
-
-
 
     @Test
     @DisplayName("Получение данных о существующем пользователе")
@@ -50,7 +35,6 @@ public class ReqresInTests {
                 .spec(logsInResponse)
                 .spec(successfulResponse);
     }
-
 
 
     @Test
@@ -72,11 +56,11 @@ public class ReqresInTests {
     @Tag("reqres_test")
     void registrationIsSuccessfulWithLombok() {
 
-        RegistrationBodyLombokModel body = new RegistrationBodyLombokModel();
+        InputUserRegistrationDto body = new InputUserRegistrationDto();
         body.setEmail("eve.holt@reqres.in");
         body.setPassword("pistol");
 
-        RegistrationBodyLombokModel response = given()
+        InputUserRegistrationDto response = given()
                 .spec(registerRequestSpec)
                 .body(body)
                 .when()
@@ -84,7 +68,7 @@ public class ReqresInTests {
                 .then()
                 .spec(logsInResponse)
                 .spec(successfulResponse)
-                .extract().as(RegistrationBodyLombokModel.class);
+                .extract().as(InputUserRegistrationDto.class);
 
     }
 
@@ -93,6 +77,8 @@ public class ReqresInTests {
     @DisplayName("Попытка регистрации без пароля - проверка ошибки")
     @Tag("reqres_test")
     void tryToRegistrationWithoutPasswordWithPojoModel() {
+
+        String userEmail = faker.internet().emailAddress();
 
         RegistrationBodyPojoModel body = new RegistrationBodyPojoModel();
         body.setEmail(userEmail);
@@ -112,6 +98,8 @@ public class ReqresInTests {
     @DisplayName("Попытка регистрации без email - проверка ошибки")
     @Tag("reqres_test")
     void tryToRegistrationWithoutEmailWithPojoModel() {
+        String password = faker.internet().password();
+
         RegistrationBodyPojoModel body = new RegistrationBodyPojoModel();
         body.setPassword(password);
 
@@ -143,6 +131,9 @@ public class ReqresInTests {
     @DisplayName("Обновление данных пользователя")
     @Tag("reqres_test")
     void updateUserData() {
+        String name = faker.name().firstName();
+        String job = faker.job().position();
+
         UpdateBodyLombokModel body = new UpdateBodyLombokModel();
         body.setName(name);
         body.setJob(job);

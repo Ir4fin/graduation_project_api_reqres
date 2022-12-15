@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RegistrationBodyLombokModel {
+public class InputUserRegistrationDto {
     private String email,
             password;
 }
