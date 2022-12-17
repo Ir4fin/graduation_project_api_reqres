@@ -3,8 +3,7 @@ package tests;
 import com.github.javafaker.Faker;
 import models.InputUserRegistrationDto;
 import models.RegistrationBodyPojoModel;
-import models.UpdateBodyLombokModel;
-import org.junit.jupiter.api.BeforeEach;
+import models.UpdateBodyDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -18,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static specs.Specs.*;
 
 
-public class ReqresInTests {
+public class ReqresInTests extends TestBase {
 
     Faker faker = new Faker(new Locale("en"));
 
@@ -28,9 +27,9 @@ public class ReqresInTests {
     @Tag("reqres_test")
     void getSingleUserPositive() {
         given()
-                .spec(userRequestSpec)
+                .spec(baseRequestSpec)
                 .when()
-                .get("/2")
+                .get("/users/2")
                 .then()
                 .spec(logsInResponse)
                 .spec(successfulResponse);
@@ -42,9 +41,9 @@ public class ReqresInTests {
     @Tag("reqres_test")
     void getSingleUserNegative() {
         given()
-                .spec(userRequestSpec)
+                .spec(baseRequestSpec)
                 .when()
-                .get("/23")
+                .get("/users/23")
                 .then()
                 .spec(logsInResponse)
                 .statusCode(404);
@@ -54,13 +53,14 @@ public class ReqresInTests {
     @Test
     @DisplayName("Успешная регистрация")
     @Tag("reqres_test")
-    void registrationIsSuccessfulWithLombok() {
+    void registrationIsSuccessfulWithDtoModel() {
 
         InputUserRegistrationDto body = new InputUserRegistrationDto();
         body.setEmail("eve.holt@reqres.in");
         body.setPassword("pistol");
 
         InputUserRegistrationDto response = given()
+                .spec(baseRequestSpec)
                 .spec(registerRequestSpec)
                 .body(body)
                 .when()
@@ -84,6 +84,7 @@ public class ReqresInTests {
         body.setEmail(userEmail);
 
         given()
+                .spec(baseRequestSpec)
                 .spec(registerRequestSpec)
                 .body(body)
                 .when()
@@ -104,6 +105,7 @@ public class ReqresInTests {
         body.setPassword(password);
 
         given()
+                .spec(baseRequestSpec)
                 .spec(registerRequestSpec)
                 .body(body)
                 .when()
@@ -119,9 +121,9 @@ public class ReqresInTests {
     @Tag("reqres_test")
     void deleteSuccessful() {
         given()
-                .spec(userRequestSpec)
+                .spec(baseRequestSpec)
                 .when()
-                .delete("/2")
+                .delete("/users/2")
                 .then()
                 .spec(logsInResponse)
                 .statusCode(204);
@@ -131,25 +133,27 @@ public class ReqresInTests {
     @DisplayName("Обновление данных пользователя")
     @Tag("reqres_test")
     void updateUserData() {
-        String name = faker.name().firstName();
-        String job = faker.job().position();
 
-        UpdateBodyLombokModel body = new UpdateBodyLombokModel();
-        body.setName(name);
-        body.setJob(job);
+        String userName = faker.name().firstName();
+        String userJob = faker.job().position();
 
+        UpdateBodyDto body = new UpdateBodyDto();
+        body.setName(userName);
+        body.setJob(userJob);
 
-        UpdateBodyLombokModel response = given()
-                .spec(userRequestSpec)
+        UpdateBodyDto response = given()
+                .spec(baseRequestSpec)
                 .body(body)
                 .when()
-                .put("/23")
+                .put("/users/2")
                 .then()
                 .spec(logsInResponse)
                 .spec(successfulResponse)
-                .extract().as(UpdateBodyLombokModel.class);
+                .extract().as(UpdateBodyDto.class);
 
-        assertThat(response).isNotNull();
+        assertThat(response.getName()).isEqualTo(userName);
+        assertThat(response.getJob()).isEqualTo(userJob);
+
 
     }
 

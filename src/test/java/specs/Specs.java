@@ -11,20 +11,15 @@ import static io.restassured.RestAssured.with;
 
 public class Specs {
 
-    public static RequestSpecification userRequestSpec = with()
+    public static RequestSpecification baseRequestSpec = with()
             .filter(withCustomTemplates())
-            .baseUri("https://reqres.in")
-            .basePath("api/users")
-            .log().uri()
-            .log().body();
-
-    public static RequestSpecification registerRequestSpec = with()
-            .filter(withCustomTemplates())
-            .baseUri("https://reqres.in")
-            .basePath("api/register")
             .log().uri()
             .log().body()
             .contentType(ContentType.JSON);
+
+    public static RequestSpecification registerRequestSpec = with()
+            .basePath("/register");
+
 
     public static ResponseSpecification logsInResponse = new ResponseSpecBuilder()
             .log(LogDetail.STATUS)

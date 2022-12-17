@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UpdateBodyLombokModel {
+public class UpdateBodyDto {
     private String name,
             job;
 }
